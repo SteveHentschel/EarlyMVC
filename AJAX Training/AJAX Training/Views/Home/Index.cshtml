@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AJAX_Training.Models.Training>
+
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/appjs/jquery.timepicker.min.js"></script>
+    <link href="~/Content/appcss/custom-style.css" rel="stylesheet" />
+    <link href="~/Content/appcss/jquery.timepicker.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="pageHeader">
+        <h2>Manage Trainings</h2>
+    </div>
+    <table id="tbltraining" class="tblStyle">
+        <tr class="tblHearerRow">
+            <th class="tblHearerCell">
+                Name
+            </th>
+            <th class="tblHearerCell">
+                Instructor
+            </th>
+            <th class="tblHearerCell">
+                Star tDate
+            </th>
+            <th class="tblHearerCell">
+                End Date
+            </th>
+            <th class="tblHearerCell">
+                Start Time
+            </th>
+            <th class="tblHearerCell">
+                Duration
+            </th>
+            <th class="tblHearerCell">
+                Actions
+            </th>
+        </tr>
+        @foreach (var item in Model)
+            {
+            <tr class="tblRow">
+                
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.Instructor)
+                </td>
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td class="tblColumn">
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td class="tblColumn">
+                    <input type="button" value="Edit"
+                           class="buttonEdit btnStyleOne" />
+                    <input type="button" value="Delete"
+                           class="buttonDelete btnStyleOne" />
+                <td>
+            </tr>
+            }
+    </table>
+    <div class="btnStyleTwo">
+        <input type="button" value="Create new Training"
+               class="buttonCreate btnStyleOne" />
+    </div>
+</body>
+</html>

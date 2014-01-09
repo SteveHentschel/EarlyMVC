@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Training>
+  <item>
+    <id>1</id>
+    <name>ASP.NET 4</name>
+    <instructor>Snesh</instructor>
+    <startDate>10/26/2013</startDate>
+    <endDate>10/26/2013</endDate>
+    <time>3:00pm</time>
+    <duration>45min</duration>
+  </item>
+  <item>
+    <id>3</id>
+    <name>MVC4</name>
+    <instructor>Deepak</instructor>
+    <startDate>10/8/2013</startDate>
+    <endDate>10/10/2013</endDate>
+    <time>4:00pm</time>
+    <duration>45min</duration>
+  </item>
+  <item>
+    <id>4</id>
+    <name>jQuery</name>
+    <instructor>Leo DaVinci</instructor>
+    <startDate>9/9/2014</startDate>
+    <endDate>9/11/2013</endDate>
+    <time>9:00pm</time>
+    <duration>99 min</duration>
+  </item>
+  <item>
+    <id>5</id>
+    <name>WinRT</name>
+    <instructor>Snesh</instructor>
+    <startDate>10/14/2013</startDate>
+    <endDate>10/23/2013</endDate>
+    <time>2:00am</time>
+    <duration>30min</duration>
+  </item>
+  <item>
+    <id>6</id>
+    <name>jQueryUI</name>
+    <instructor>Ashwani</instructor>
+    <startDate>11/10/2013</startDate>
+    <endDate>11/11/2013</endDate>
+    <time>1:00am</time>
+    <duration>20min</duration>
+  </item>
+</Training>

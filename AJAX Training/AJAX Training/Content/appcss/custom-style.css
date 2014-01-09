@@ -1,0 +1,63 @@
+﻿body {
+    background-color:lightblue;
+}
+
+ .tblRow, .tblColumn {
+       font-size: 12px;
+       border: 1px inset;
+    text-align: center;
+}
+.tblStyle {
+    border: 1px inset;
+    text-align: center;
+    min-width: 80px;
+    background-color: white;
+    margin-left: 100px;
+ 
+    font-family: Calibri;
+    
+}
+
+
+.tblHearerCell {
+    border: 1px inset;
+    text-align: center;
+    min-width: 80px;
+    background-color: #F2A53C;
+    font-size: 16px;
+
+}
+
+.tblHearerRow {
+     height: 30px;
+}
+.btnStyleOne {
+    color: #F2A53C;
+    border-radius: 4px;
+}
+
+.btnStyleTwo {
+    color: #F2A53C;
+    border-radius: 4px;
+    margin-left:100px;
+    margin-top:10px;
+}
+
+select {
+    width: 180px;
+}
+.pageHeader {
+    margin-left: 300px;
+    margin-top: 100px;
+}
+ 
+
+.ui-dialog .ui-dialog-titlebar
+ {
+    background: #F2A53C;
+    
+       }
+
+/*.customDialogbar .ui-dialog-titlebar {
+    background:  #F2A53C;
+}*/
