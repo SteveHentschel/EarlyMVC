@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AJAX_Training.Models
 {
-    public interface ITrainingRepo
+    interface ITrainingRepo
     {
         IEnumerable<Training> GetTrainings();
         List<string> GetInstructor();

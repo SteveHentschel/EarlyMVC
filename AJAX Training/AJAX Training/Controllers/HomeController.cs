@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AJAX_Training.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AJAX_Training.Models;
 
 namespace AJAX_Training.Controllers
 {
@@ -17,18 +17,44 @@ namespace AJAX_Training.Controllers
             return View(allTrainings);
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult _CreatePopUp()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView("_CreatePopUp");
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public void Create(Training training)
         {
-            ViewBag.Message = "Your contact page.";
+            _trainingRepository.InsertTraining(training);
+        }
 
-            return View();
+        [HttpGet]
+        public JsonResult GetInstructorList()
+        {
+            var allInstructors = _trainingRepository.GetInstructor().ToList();
+            return Json(allInstructors, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult _EditPopUp(string id)
+        {
+            int selectedTrainingId = Convert.ToInt32(id);
+            Training selectedTraining = _trainingRepository.GetTrainingByID(selectedTrainingId);
+
+            return PartialView("_EditPopUp", selectedTraining);
+        }
+
+        [HttpPost]
+        public void Edit(Training training)
+        {
+            _trainingRepository.EditTraining(training);
+        }
+
+        public void Delete(string id)
+        {
+            int selectedTrainingId = Convert.ToInt32(id);
+            _trainingRepository.DeleteTraining(selectedTrainingId);
         }
     }
 }

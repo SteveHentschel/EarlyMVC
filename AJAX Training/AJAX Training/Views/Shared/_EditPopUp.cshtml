@@ -1,0 +1,61 @@
+﻿@model AJAX_Training.Models.Training
+
+<table>
+    <tr>
+        <td>
+            <input type="text" id="traininId" value="@Model.ID" />
+        </td>
+        <td>Training Name</td>
+        <td>
+            <input type="text" id="name" value="@Model.Name" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Instructor Name</td>
+        <td>
+            <select id="editselectInstructor">
+                <option selected="selected">Select Instructor</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Select Time</td>
+        <td>
+
+            <input id="edittimepicker" value="@Model.Time" />
+
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Start Date</td>
+        <td>
+
+            <input id="startdatepicker" value="@Model.StartDate.ToString("dd MMM yyyy")" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>End Date</td>
+        <td>
+            <input id="enddatepicker" value="@Model.EndDate.ToString("dd MMM yyyy")" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Duration</td>
+        <td>
+            <input type="text" id="duration" value="@Model.Duration" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" value="Update" id="update-button" class="btnStyleOne" />
+        </td>
+    </tr>
+</table>
+
+<script src="~/Scripts/appjs/edit.partialview.js"></script>

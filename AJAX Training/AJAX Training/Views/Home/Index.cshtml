@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="pageHeader">
-        <h2>Manage Trainings</h2>
+        <h2>Manage Training Sessions</h2>
     </div>
     <table id="tbltraining" class="tblStyle">
         <tr class="tblHearerRow">
@@ -20,7 +20,7 @@
                 Instructor
             </th>
             <th class="tblHearerCell">
-                Star tDate
+                Start Date
             </th>
             <th class="tblHearerCell">
                 End Date
@@ -36,9 +36,11 @@
             </th>
         </tr>
         @foreach (var item in Model)
-            {
+        {
             <tr class="tblRow">
-                
+                <td id="itemId" class="itemIdClass tblColumn">
+                    @Html.TextBoxFor(modelItem => item.ID)
+                </td>
                 <td class="tblColumn">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -65,11 +67,22 @@
                            class="buttonDelete btnStyleOne" />
                 <td>
             </tr>
-            }
+        }
     </table>
+
     <div class="btnStyleTwo">
-        <input type="button" value="Create new Training"
-               class="buttonCreate btnStyleOne" />
+        <input type="button" value="Create New Session" class="buttonCreate btnStyleOne" />
     </div>
+
+    <div id="createForm"></div>
+    <div id="editForm"></div>
+    <div id="deleteForm">
+        <p>Please confirm you would like to delete this training session ...</p>
+        <input type="button" value="Yes" class="okDelete btnStyle" />
+    </div>
+
+    <script src="~/Scripts/appjs/index.js"></script>
+
 </body>
 </html>
+

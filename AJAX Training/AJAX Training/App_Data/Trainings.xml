@@ -21,16 +21,16 @@
   <item>
     <id>4</id>
     <name>jQuery</name>
-    <instructor>Leo DaVinci</instructor>
-    <startDate>9/9/2014</startDate>
-    <endDate>9/11/2013</endDate>
-    <time>9:00pm</time>
-    <duration>99 min</duration>
+    <instructor>Ashwani</instructor>
+    <startDate>1/10/2014</startDate>
+    <endDate>1/10/2014</endDate>
+    <time>5:00pm</time>
+    <duration>2 hrs</duration>
   </item>
   <item>
     <id>5</id>
     <name>WinRT</name>
-    <instructor>Snesh</instructor>
+    <instructor>Leo DaVinci</instructor>
     <startDate>10/14/2013</startDate>
     <endDate>10/23/2013</endDate>
     <time>2:00am</time>
@@ -39,10 +39,19 @@
   <item>
     <id>6</id>
     <name>jQueryUI</name>
-    <instructor>Ashwani</instructor>
+    <instructor>Deepak</instructor>
     <startDate>11/10/2013</startDate>
     <endDate>11/11/2013</endDate>
     <time>1:00am</time>
     <duration>20min</duration>
+  </item>
+  <item>
+    <id>7</id>
+    <name>MVC5</name>
+    <instructor>slhCode</instructor>
+    <startDate>1/22/2014</startDate>
+    <endDate>1/24/2014</endDate>
+    <time>11:00pm</time>
+    <duration>1 hr</duration>
   </item>
 </Training>

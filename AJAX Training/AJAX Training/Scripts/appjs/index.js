@@ -28,7 +28,7 @@ $("#deleteForm").dialog({
 $(".buttonCreate").button().click(function () {
        $.ajax({
 	    // Call CreatePartialView action method
-        url: "/Home/CreatePartialView",
+        url: "/Home/_CreatePopUp",
         type: 'Get',
         success: function (data) {          
             $("#createForm").dialog("open");
@@ -36,7 +36,7 @@ $(".buttonCreate").button().click(function () {
             $("#editForm").hide();
         },
         error: function () {
-            alert("something seems wrong");
+            alert("Something wrong in Create.");
         }
     });
 });
@@ -50,7 +50,7 @@ $(".buttonEdit").button().click(function () {
     
     $.ajax({
 	// Call EditPartialView action method
-        url: "/Home/EditPartialView",
+        url: "/Home/_EditPopUp",
         data: { id: selectedId },
         type: 'Get',
         success: function (msg) {
@@ -59,7 +59,7 @@ $(".buttonEdit").button().click(function () {
             $("#createForm").hide();
 			},
         error: function () {
-            alert("something seems wrong");
+            alert("Something wrong in Edit.");
         }
     });
 });
@@ -86,7 +86,7 @@ $(".okDelete").button().click(function () {
             window.location.reload(true);
         },
         error: function (xhr) {
-            alert("something seems wrong");
+            alert("Something wrong in Delete.");
         }
     });
 });

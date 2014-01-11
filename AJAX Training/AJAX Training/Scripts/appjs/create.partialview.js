@@ -34,7 +34,7 @@ $("#submit-button").click(function () {
     // Call Create action method
     $.post('/Home/Create', { "name": name, "instructor": selectInstructor, "startdate": startdatepicker, "enddate": enddatepicker, "time": timepicker, "duration": duration },
         function () {
-            alert("data is posted successfully");
+            alert("Success! New session created.");
             window.location.reload(true);
 
         });

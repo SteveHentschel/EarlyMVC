@@ -33,7 +33,7 @@ $("#update-button").click(function () {
     var duration = $("#duration").val();
     // Call Edit action method
     $.post('/Home/Edit', { "id": id, "name": name, "instructor": instructor, "startdate": startdatepicker, "enddate": enddatepicker, "time": timepicker, "duration": duration }, function () {
-        alert("data is posted successfully");
+        alert("Success! Session was modified.");
         window.location.reload(true);
     });
 });

@@ -1,0 +1,58 @@
+﻿@model AJAX_Training.Models.Training
+
+<table>
+    <tr>
+        <td></td>
+        <td>Training Name</td>
+        <td>
+            <input type="text" id="trainingname" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Instructor Name</td>
+        <td>
+            <select id="selectInstructor">
+                <option selected="selected">Select Instructor</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Select Time</td>
+        <td>
+            <input id="timepicker" />
+
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Start Date</td>
+        <td>
+            <input id="startdatepicker" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>End Date</td>
+        <td>
+            <input id="enddatepicker" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Duration</td>
+        <td>
+            <input type="text" id="duration" />
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" value="Submit" id="submit-button" class="btnStyleOne" />
+
+        </td>
+    </tr>
+</table>
+
+<script src="~/Scripts/appjs/create.partialview.js"></script>
