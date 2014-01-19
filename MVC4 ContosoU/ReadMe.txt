@@ -1,6 +1,10 @@
 Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Entity Framework Data Model" by
 Tom Dykstra on MS' asp.net site.
 
+Jan 18, Rev 1.2 - Only Section 4 today, but learned a lot.  Great info on updating/creating data models and
+how they inter-relate.  Dykstra does a great job of explaining the relationships (ie: 1:1, 1:many) and their 
+associated keys.  slh
+
 Jan 17, Rev 1.1 - Sections 2 and 3 today.  This tutorial is very comprehensive, covers a lot of topics. 
 Learned more about ViewModels in Sect 3, will have to try again with those in FunWithDBs.  slh
 

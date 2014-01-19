@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace MVC4_ContosoU.Models
 {
     public enum Grade
@@ -9,8 +11,12 @@ namespace MVC4_ContosoU.Models
     public class Enrollment
     {
         public int EnrollmentID { get; set; }
+
         public int CourseID { get; set; }
+
         public int StudentID { get; set; }
+
+        [DisplayFormat(NullDisplayText = "No grade")]               // Nice; useful.
         public Grade? Grade { get; set; }
 
         public virtual Course Course { get; set; }
