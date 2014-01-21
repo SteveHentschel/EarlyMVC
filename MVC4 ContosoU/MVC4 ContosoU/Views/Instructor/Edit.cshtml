@@ -1,17 +1,17 @@
 ﻿@model MVC4_ContosoU.Models.Instructor
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Instructor";
 }
 
-<h2>Edit</h2>
+<h2>Edit Instructor</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Instructor</legend>
+        <legend>Instructor to Edit</legend>
 
         @Html.HiddenFor(model => model.InstructorID)
 
@@ -37,6 +37,40 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.HireDate)
             @Html.ValidationMessageFor(model => model.HireDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OfficeAssignment.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OfficeAssignment.Location)
+            @Html.ValidationMessageFor(model => model.OfficeAssignment.Location)
+        </div>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    @{
+                        int cnt = 0;
+                        List<MVC4_ContosoU.ViewModels.AssignedCourseData> courses = ViewBag.Courses;
+
+                        foreach (var course in courses)
+                        {
+                            if (cnt++ % 3 == 0)
+                            {
+                               @:</tr><tr>
+                            }
+                    @:<td>
+                        <input type="checkbox"
+                               name="selectedCourses"
+                               value="@course.CourseID"
+                               @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+                        @course.CourseID @:  @course.Title
+                    @:</td>
+                }
+                @:</tr>
+            }
+            </table>
         </div>
 
         <p>

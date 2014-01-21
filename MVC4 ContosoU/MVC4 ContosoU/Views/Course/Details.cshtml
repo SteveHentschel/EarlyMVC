@@ -1,13 +1,20 @@
 ﻿@model MVC4_ContosoU.Models.Course
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Course Details";
 }
 
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Course</legend>
+    <legend>Course Details</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CourseID)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.CourseID)
+    </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Title)

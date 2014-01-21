@@ -15,6 +15,7 @@
         <th>First Name</th>
         <th>Hire Date</th>
         <th>Office</th>
+        <th>Courses</th>
         <th></th>
     </tr>
 
@@ -42,6 +43,17 @@
                     @item.OfficeAssignment.Location
                 }
             </td>
+
+            <td>
+                @{
+                    foreach (var course in item.Courses)
+                    {
+                        @course.CourseID @:  @course.Title <br />
+                    }
+                }
+            </td>
+
+
             <td>
                 @Html.ActionLink("Select", "Index", new { id = item.InstructorID }) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.InstructorID }) |
@@ -59,7 +71,7 @@
     {                                                                           //   with the actual Professor's name.
         if (w.InstructorID == ViewBag.InstructorID) {selInst = w.LastName;}     // But there must be a better way ...
     }    
-    <h3>Courses Taught by Professor @selInst</h3>                               // Replaced here.
+    <h3>Courses Taught by Professor @selInst</h3>                               // Replaced here. (slh)
                                                                                 
     <table>
         <tr> 
@@ -98,7 +110,7 @@
 
 @if (Model.Enrollments != null)
 {
-    <h3>Students Enrolled in @ViewBag.Course.Title</h3>             // Replace 'Selected Couse' with actual course name
+    <h3>Students Enrolled in @ViewBag.Course.Title</h3>         // Replace 'Selected Course' w/ actual course name (slh)
     
     <table>
         <tr>

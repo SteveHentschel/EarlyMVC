@@ -1,6 +1,10 @@
 Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Entity Framework Data Model" by
 Tom Dykstra on MS' asp.net site.
 
+
+Jan 21, Rev 1.4 - Worked on Part 6 today.  Mainly CRUD update and view stuff for Instructor and Courses.
+Did good stuff with DropDownLists for Departments and CheckBox grids for Courses using HashSets.  slh
+
 Jan 20, Rev 1.3 - Did Section 5 today. Excellent study on lazy/eager/explicit loading of nav properties.
 I spent a lot of time trying to replace the generic 'Selected Instructor' & 'Course' with the specific names.
 Finally used ViewBag for Course and some view code for the Professor.  Learned a little.  slh

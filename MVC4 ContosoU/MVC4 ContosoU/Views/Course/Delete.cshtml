@@ -1,14 +1,21 @@
 ﻿@model MVC4_ContosoU.Models.Course
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Course Delete";
 }
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Course ?</h3>
 <fieldset>
-    <legend>Course</legend>
+    <legend>Course Delete</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CourseID)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.CourseID)
+    </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Title)
