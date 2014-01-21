@@ -6,7 +6,7 @@ namespace MVC4_ContosoU.Models
 {
     public class Course
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]       // Create by user, not auto; ID = Course Number
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]       // Create key by user, not auto; ID = Course Number
         [Display(Name = "Number")]
         public int CourseID { get; set; }
 

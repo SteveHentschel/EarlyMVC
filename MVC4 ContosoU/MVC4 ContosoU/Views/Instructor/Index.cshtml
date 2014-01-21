@@ -1,0 +1,120 @@
+﻿@model MVC4_ContosoU.ViewModels.InstructorIndexData
+
+@{
+    ViewBag.Title = "Instructors";
+}
+
+<h2>Instructor List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Hire Date</th>
+        <th>Office</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Instructors)
+    {
+        string selectedRow = "";
+        if (item.InstructorID == ViewBag.InstructorID)
+        {
+            selectedRow = "selectedrow";
+        }
+        <tr class="@selectedRow" valign="top">
+            
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                @item.FirstMidName
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HireDate)
+            </td>
+            <td>
+                @if (item.OfficeAssignment != null)
+                {
+                    @item.OfficeAssignment.Location
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Index", new { id = item.InstructorID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.InstructorID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.InstructorID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.InstructorID })
+            </td>
+        </tr>
+    }
+</table>
+
+@if (Model.Courses != null)
+{
+    string selInst = "";                                                        // This seems lame, but I wanted to 
+    foreach (var w in Model.Instructors)                                        //   replace the generic 'Selected Instructor'
+    {                                                                           //   with the actual Professor's name.
+        if (w.InstructorID == ViewBag.InstructorID) {selInst = w.LastName;}     // But there must be a better way ...
+    }    
+    <h3>Courses Taught by Professor @selInst</h3>                               // Replaced here.
+                                                                                
+    <table>
+        <tr> 
+            <th>ID</th>
+            <th>Title</th>
+            <th>Department</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Courses)
+        {
+            string selectedRow = "";
+            if (item.CourseID == ViewBag.CourseID)
+            {
+                selectedRow = "selectedrow";
+            }
+            <tr class="@selectedRow">
+                
+                <td>
+                    @item.CourseID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.Enrollments != null)
+{
+    <h3>Students Enrolled in @ViewBag.Course.Title</h3>             // Replace 'Selected Couse' with actual course name
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.Enrollments)
+        {
+            <tr>
+                <td>
+                    @item.Student.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -1,6 +1,10 @@
 Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Entity Framework Data Model" by
 Tom Dykstra on MS' asp.net site.
 
+Jan 20, Rev 1.3 - Did Section 5 today. Excellent study on lazy/eager/explicit loading of nav properties.
+I spent a lot of time trying to replace the generic 'Selected Instructor' & 'Course' with the specific names.
+Finally used ViewBag for Course and some view code for the Professor.  Learned a little.  slh
+
 Jan 18, Rev 1.2 - Only Section 4 today, but learned a lot.  Great info on updating/creating data models and
 how they inter-relate.  Dykstra does a great job of explaining the relationships (ie: 1:1, 1:many) and their 
 associated keys.  slh
