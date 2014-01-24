@@ -27,9 +27,9 @@ namespace MVC4_ContosoU.Controllers
 
             if (id != null)
             {
-                ViewBag.InstructorID = id.Value;                        
+                ViewBag.PersonID = id.Value;                        
                 viewModel.Courses = viewModel.Instructors.Where(
-                    i => i.InstructorID == id.Value).Single().Courses;
+                    i => i.PersonID == id.Value).Single().Courses;
             }
 
             if (courseID != null)
@@ -69,7 +69,7 @@ namespace MVC4_ContosoU.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.InstructorID = new SelectList(db.OfficeAssignments, "InstructorID", "Location");
+            ViewBag.PersonID = new SelectList(db.OfficeAssignments, "PersonID", "Location");
             return View();
         }
 
@@ -87,7 +87,7 @@ namespace MVC4_ContosoU.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstructorID = new SelectList(db.OfficeAssignments, "InstructorID", "Location", instructor.InstructorID);
+            ViewBag.PersonID = new SelectList(db.OfficeAssignments, "PersonID", "Location", instructor.PersonID);
             return View(instructor);
         }
 
@@ -99,7 +99,7 @@ namespace MVC4_ContosoU.Controllers
             Instructor instructor = db.Instructors
                 .Include(i => i.OfficeAssignment)                       // Use eager loading to get Office data
                 .Include(i => i.Courses)                                //   and Course data
-                .Where(i => i.InstructorID == id)
+                .Where(i => i.PersonID == id)
                 .Single();
 
             PopulateAssignedCourseData(instructor);
@@ -133,7 +133,7 @@ namespace MVC4_ContosoU.Controllers
             var instructorToUpdate = db.Instructors
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.Courses)
-                .Where(i => i.InstructorID == id)
+                .Where(i => i.PersonID == id)
                 .Single();
 
             if (TryUpdateModel(instructorToUpdate, "",
@@ -216,7 +216,7 @@ namespace MVC4_ContosoU.Controllers
         {
             Instructor instructor = db.Instructors
               .Include(i => i.OfficeAssignment)
-              .Where(i => i.InstructorID == id)
+              .Where(i => i.PersonID == id)
               .Single();
 
             instructor.OfficeAssignment = null;                     // Make sure to clear any office space

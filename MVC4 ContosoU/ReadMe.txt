@@ -2,6 +2,9 @@ Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Enti
 Tom Dykstra on MS' asp.net site.
 
 
+Jan 23, Rev 1.6 - Part 8, Inheritance today.  Created Person class and made Students/Instructors inherited via
+TPH methodology (Table per Heirarchy) with discriminator to keep things 'DRY'.  slh
+
 Jan 22, Rev 1.5 - What else, finished part 7.  Implemented concurrency exception checking in the Department tab.
 Added the code for Edit and Delete functions, tested with 2 open tabs during edit/delete processes, nice.  slh
 

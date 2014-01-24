@@ -22,7 +22,7 @@
     @foreach (var item in Model.Instructors)
     {
         string selectedRow = "";
-        if (item.InstructorID == ViewBag.InstructorID)
+        if (item.PersonID == ViewBag.PersonID)
         {
             selectedRow = "selectedrow";
         }
@@ -55,10 +55,10 @@
 
 
             <td>
-                @Html.ActionLink("Select", "Index", new { id = item.InstructorID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.InstructorID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.InstructorID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.InstructorID })
+                @Html.ActionLink("Select", "Index", new { id = item.PersonID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
             </td>
         </tr>
     }
@@ -69,7 +69,7 @@
     string selInst = "";                                                        // This seems lame, but I wanted to 
     foreach (var w in Model.Instructors)                                        //   replace the generic 'Selected Instructor'
     {                                                                           //   with the actual Professor's name.
-        if (w.InstructorID == ViewBag.InstructorID) {selInst = w.LastName;}     // But there must be a better way ...
+        if (w.PersonID == ViewBag.PersonID) {selInst = w.LastName;}     // But there must be a better way ...
     }    
     <h3>Courses Taught by Professor @selInst</h3>                               // Replaced here. (slh)
                                                                                 
