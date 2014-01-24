@@ -12,14 +12,14 @@ namespace MVC4_ContosoU.Controllers
 {
     public class CourseController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+        private UnitOfWork unitOfWork = new UnitOfWork();
 
         //
         // GET: /Course/
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var courses = db.Courses.Include(c => c.Department);            // "Eager loading" technique (uses include)
+            var courses = unitOfWork.CourseRepository.Get(includeProperties: "Department");
             return View(courses.ToList());
         }
 
@@ -28,11 +28,8 @@ namespace MVC4_ContosoU.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Course course = db.Courses.Find(id);
-            if (course == null)
-            {
-                return HttpNotFound();
-            }
+            Course course = unitOfWork.CourseRepository.GetByID(id);
+            
             return View(course);
         }
 
@@ -56,8 +53,8 @@ namespace MVC4_ContosoU.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Courses.Add(course);
-                    db.SaveChanges();
+                    unitOfWork.CourseRepository.Insert(course);
+                    unitOfWork.Save();
                     return RedirectToAction("Index");
                 }
             }
@@ -75,7 +72,7 @@ namespace MVC4_ContosoU.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Course course = db.Courses.Find(id);
+            Course course = unitOfWork.CourseRepository.GetByID(id);
             PopulateDepartmentsDropDownList(course.DepartmentID);
             return View(course);
         }
@@ -91,8 +88,8 @@ namespace MVC4_ContosoU.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(course).State = EntityState.Modified;
-                    db.SaveChanges();
+                    unitOfWork.CourseRepository.Update(course);
+                    unitOfWork.Save();
                     return RedirectToAction("Index");
                 }
             }
@@ -107,9 +104,8 @@ namespace MVC4_ContosoU.Controllers
 
         private void PopulateDepartmentsDropDownList(object selectedDepartment = null)
         {
-            var departmentsQuery = from d in db.Departments
-                                   orderby d.Name
-                                   select d;
+            var departmentsQuery = unitOfWork.DepartmentRepository.Get(orderBy: q => q.OrderBy(d => d.Name));
+
             ViewBag.DepartmentID = new SelectList(departmentsQuery, "DepartmentID", "Name", selectedDepartment);
         } 
 
@@ -118,7 +114,7 @@ namespace MVC4_ContosoU.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Course course = db.Courses.Find(id);
+            Course course = unitOfWork.CourseRepository.GetByID(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -133,15 +129,15 @@ namespace MVC4_ContosoU.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course course = db.Courses.Find(id);
-            db.Courses.Remove(course);
-            db.SaveChanges();
+            Course course = unitOfWork.CourseRepository.GetByID(id);
+            unitOfWork.CourseRepository.Delete(id);
+            unitOfWork.Save();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            unitOfWork.Dispose();
             base.Dispose(disposing);
         }
     }

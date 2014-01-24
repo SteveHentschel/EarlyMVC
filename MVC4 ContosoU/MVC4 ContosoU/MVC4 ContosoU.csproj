@@ -193,7 +193,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="DataAccessLayer\GenericRepository.cs" />
+    <Compile Include="DataAccessLayer\IStudentRepository.cs" />
     <Compile Include="DataAccessLayer\SchoolContext.cs" />
+    <Compile Include="DataAccessLayer\StudentRepository.cs" />
+    <Compile Include="DataAccessLayer\UnitofWork.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

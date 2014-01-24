@@ -2,6 +2,10 @@ Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Enti
 Tom Dykstra on MS' asp.net site.
 
 
+Jan 24, Rev 1.7 - Finished Part 9 (Repository) today; should have done more, but got busy on other things.  
+Created Repo interface and Repo class for the Student entity; with I/F, could potentially do unit test.
+Created REpo classes for Course and Department entities, but no interface due to tutorial length.  slh
+
 Jan 23, Rev 1.6 - Part 8, Inheritance today.  Created Person class and made Students/Instructors inherited via
 TPH methodology (Table per Heirarchy) with discriminator to keep things 'DRY'.  slh
 
