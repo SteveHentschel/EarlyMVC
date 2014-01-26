@@ -18,6 +18,11 @@ namespace MVC4_ContosoU.DataAccessLayer
             this.dbSet = context.Set<TEntity>();
         }
 
+        public virtual IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters)     // Raw SQL eg.
+        {
+            return dbSet.SqlQuery(query, parameters).ToList();
+        }
+
         public virtual IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

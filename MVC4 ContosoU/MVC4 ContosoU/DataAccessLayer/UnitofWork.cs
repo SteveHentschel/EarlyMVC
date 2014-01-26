@@ -7,7 +7,8 @@ namespace MVC4_ContosoU.DataAccessLayer
     {
         private SchoolContext context = new SchoolContext();                //  Create db Context variables
         private GenericRepository<Department> departmentRepository;         //    and specific repositories
-        private GenericRepository<Course> courseRepository;
+  //      private GenericRepository<Course> courseRepository;
+        private CourseRepository courseRepository;                          //  ** Raw SQL Update example
 
         public GenericRepository<Department> DepartmentRepository
         {
@@ -22,14 +23,16 @@ namespace MVC4_ContosoU.DataAccessLayer
             }
         }
 
-        public GenericRepository<Course> CourseRepository
+ //       public GenericRepository<Course> CourseRepository                 //  ** remove Generic for SQL update
+        public CourseRepository CourseRepository
         {
             get
             {
 
                 if (this.courseRepository == null)
                 {
-                    this.courseRepository = new GenericRepository<Course>(context);
+  //                  this.courseRepository = new GenericRepository<Course>(context);
+                    this.courseRepository = new CourseRepository(context);
                 }
                 return courseRepository;
             }

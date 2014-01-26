@@ -2,6 +2,10 @@ Working thru the tutorial "Getting Started with EF5 using MVC4, Creating an Enti
 Tom Dykstra on MS' asp.net site.
 
 
+Jan 26, Rev 1.8 - Wow! Finished Part 10, the end of this most excellent program.  This tutorial was so, so 
+much better than the CodeProject article/tutorials, where most authors are just trying to get article points.
+Chapter 10 focused on Raw SQL queries, mass DB updates, no-tracking, and some proxy classes.  slh
+
 Jan 24, Rev 1.7 - Finished Part 9 (Repository) today; should have done more, but got busy on other things.  
 Created Repo interface and Repo class for the Student entity; with I/F, could potentially do unit test.
 Created REpo classes for Course and Department entities, but no interface due to tutorial length.  slh

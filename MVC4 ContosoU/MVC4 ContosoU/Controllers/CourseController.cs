@@ -17,20 +17,49 @@ namespace MVC4_ContosoU.Controllers
         //
         // GET: /Course/
 
-        public ViewResult Index()
+  //      public ViewResult Index()
+  //      {
+  ////          var courses = unitOfWork.CourseRepository.Get(includeProperties: "Department");
+  //          var courses = unitOfWork.CourseRepository.Get();        // use to see actual SQL text in GenericRepo
+  //          return View(courses.ToList());
+  //      }
+
+        public ActionResult Index(int? SelectedDepartment)          // New Course list with DropDownList choices
         {
-            var courses = unitOfWork.CourseRepository.Get(includeProperties: "Department");
-            return View(courses.ToList());
+            var departments = unitOfWork.DepartmentRepository.Get(
+                orderBy: q => q.OrderBy(d => d.Name));
+            ViewBag.SelectedDepartment = new SelectList(departments, "DepartmentID", "Name", SelectedDepartment);
+
+            int departmentID = SelectedDepartment.GetValueOrDefault();
+            return View(unitOfWork.CourseRepository.Get(
+                filter: d => !SelectedDepartment.HasValue || d.DepartmentID == departmentID,
+                orderBy: q => q.OrderBy(d => d.CourseID),
+                includeProperties: "Department"));
         }
 
         //
         // GET: /Course/Details/5
 
-        public ActionResult Details(int id = 0)
+   //     public ActionResult Details(int id = 0)
+   //     {
+   //         Course course = unitOfWork.CourseRepository.GetByID(id);
+   //         
+   //         return View(course);
+   //    }
+
+        public ActionResult Details(int id)                                 // Raw SQL Query Example
         {
-            Course course = unitOfWork.CourseRepository.GetByID(id);
-            
-            return View(course);
+            var query = "SELECT * FROM Course WHERE CourseID = @p0";        //  eg: returns an entity
+            return View(unitOfWork.CourseRepository.GetWithRawSql(query, id).Single());
+        }
+
+        public ActionResult UpdateCourseCredits(float? multiplier)            // ** for Raw SQL Update example
+        {
+            if (multiplier != null)
+            {
+                ViewBag.RowsAffected = unitOfWork.CourseRepository.UpdateCourseCredits(multiplier.Value);
+            }
+            return View();
         }
 
         //
