@@ -190,6 +190,8 @@
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MetaData.cs" />
+    <Compile Include="Models\PartialsForMeta.cs" />
     <Compile Include="Models\Student.cs">
       <DependentUpon>ContosoModel.tt</DependentUpon>
     </Compile>
@@ -259,16 +261,16 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Enrollment\Create.cshtml" />
     <Content Include="Views\Enrollment\Delete.cshtml" />
     <Content Include="Views\Enrollment\Details.cshtml" />
     <Content Include="Views\Enrollment\Edit.cshtml" />
     <Content Include="Views\Enrollment\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

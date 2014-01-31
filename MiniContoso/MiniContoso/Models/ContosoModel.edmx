@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MiniContosoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MiniContosoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="CourseID" />
@@ -30,6 +30,7 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="EnrollmentDate" Type="datetime" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_dbo_Enrollment_dbo_Course_CourseID">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
@@ -72,8 +73,7 @@
             <End Role="Enrollment" EntitySet="Enrollment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MiniContosoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -106,6 +106,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EnrollmentDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Enrollments" Relationship="Self.FK_dbo_Enrollment_dbo_Student_StudentID" FromRole="Student" ToRole="Enrollment" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_Enrollment_dbo_Course_CourseID">
           <End Role="Course" Type="Self.Course" Multiplicity="1">
@@ -176,6 +177,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="MiniContosoModel.Student">
               <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
