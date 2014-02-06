@@ -10,57 +10,50 @@ namespace MyMusicStore.Controllers
 {
     public class MyStoreController : Controller
     {
-        //
-        // GET: /MyStore/
+        private MusicStoreEntities storeDB = new MusicStoreEntities();
 
+        // GET: /MyStore/
+        //
         public ActionResult Index()
         {
-            // Create a list of genres
-            var genres = new List<string> { "Rock", "Jazz", "Country", "Pop", "Disco", "Queen" };
+            var genres = this.storeDB.Genres;
 
-            // Create our view model
-            var viewModel = new MyStoreIndexVM
-            {
-                NumberOfGenres = genres.Count(),
-                Genres = genres
-            };
-
-            ViewBag.Starred = new List<string> { "Rock", "Jazz", "Queen" };
-
-            return this.View(viewModel);
+            return this.View(genres);
         }
 
 
         // GET: /Store/Browse?genre=Disco 
-  
+        //
         public ActionResult Browse(string genre)
         {
-            var genreModel = new Genre()
-            {
-                Name = genre
-            };
+            // Retrieve Genre and its Associated Albums from database
 
-            var albums = new List<Album>()
-            {
-                new Album() { Title = genre + " Album 1" },
-                new Album() { Title = genre + " Album 2" }
-            };
+            var genreModel = this.storeDB.Genres.Include("Albums").Single(g => g.Name == genre);
 
-            var viewModel = new MyStoreBrowseVM()
-            {
-                Genre = genreModel,
-                Albums = albums
-            };
+            return this.View(genreModel);
+        }
 
-            return this.View(viewModel);
+        // GET: /Store/GenreMenu    (ok, called in _layout.cshtml)
+        //
+        [ChildActionOnly]
+        public ActionResult GenreMenu()
+        {
+            var genres = this.storeDB.Genres.Take(9).ToList();
+
+            return this.PartialView(genres);
         }
 
 
         // GET: /Store/Details/5    
-
+        //
         public ActionResult Details(int id)
         {
-            var album = new Album { Title = "Sample Album" };
+            var album = this.storeDB.Albums.Find(id);
+
+            if (album == null)
+            {
+                return this.HttpNotFound();
+            }
 
             return this.View(album);
         }
