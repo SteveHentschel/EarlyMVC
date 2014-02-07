@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MyMusicStore.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MyMusicStore
@@ -8,6 +9,7 @@ namespace MyMusicStore
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new MyNewCAF());
         }
     }
 }

@@ -14,6 +14,9 @@ namespace MyMusicStore.Models
 
         public DbSet<Artist> Artists { get; set; }
 
+        public DbSet<ActionLog> ActionLogs { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Genre>().ToTable("Genres");

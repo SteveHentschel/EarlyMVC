@@ -126,11 +126,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ActionLogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyStoreController.cs" />
+    <Compile Include="Controllers\MyStoreMgrController.cs" />
+    <Compile Include="Filters\CustomerActionFilter.cs" />
+    <Compile Include="Filters\MyNewCAF.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActionLog.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -234,6 +239,12 @@
     <Content Include="Views\MyStore\Browse.cshtml" />
     <Content Include="Views\MyStore\Details.cshtml" />
     <Content Include="Views\MyStore\GenreMenu.cshtml" />
+    <Content Include="Views\MyStoreMgr\Index.cshtml" />
+    <Content Include="Views\MyStoreMgr\Details.cshtml" />
+    <Content Include="Views\MyStoreMgr\Create.cshtml" />
+    <Content Include="Views\MyStoreMgr\Edit.cshtml" />
+    <Content Include="Views\MyStoreMgr\Delete.cshtml" />
+    <Content Include="Views\ActionLog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

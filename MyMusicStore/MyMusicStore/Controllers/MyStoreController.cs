@@ -1,4 +1,5 @@
-﻿using MyMusicStore.Models;
+﻿using MyMusicStore.Filters;
+using MyMusicStore.Models;
 using MyMusicStore.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Web.Mvc;
 
 namespace MyMusicStore.Controllers
 {
+
+    [CustomActionFilter]
     public class MyStoreController : Controller
     {
         private MusicStoreEntities storeDB = new MusicStoreEntities();
