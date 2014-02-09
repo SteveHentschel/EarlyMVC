@@ -1,0 +1,43 @@
+﻿@model EF_Scaff_Mig.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Person</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MiddleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MiddleName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Birthday)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Birthday)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
