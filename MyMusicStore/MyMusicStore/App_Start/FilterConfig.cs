@@ -9,7 +9,7 @@ namespace MyMusicStore
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new MyNewCAF());
+   //         filters.Add(new MyNewCAF());                  // added for Filter lab, removed for DI lab
         }
     }
 }

@@ -1,7 +1,15 @@
-﻿@model MyMusicStore.Models.Genre
+﻿@inherits MyMusicStore.Pages.MyBasePage
+
 @{
     ViewBag.Title = "Browse Albums";
 }
+
+<div>
+    @this.MessageService.Message
+    <br />
+    <img alt="@this.MessageService.Message" src="@this.MessageService.ImageUrl" />
+</div>
+
 <div class="genre">
     <h3>
         <em>@Model.Name</em> Albums

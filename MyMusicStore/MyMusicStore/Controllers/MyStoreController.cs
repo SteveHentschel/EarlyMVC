@@ -1,58 +1,27 @@
 ﻿using MyMusicStore.Filters;
-using MyMusicStore.Models;
-using MyMusicStore.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using MyMusicStore.Services;
 using System.Web.Mvc;
+using Microsoft.Practices.Unity;
+using Unity.Mvc3;
 
 namespace MyMusicStore.Controllers
 {
 
-    [CustomActionFilter]
+    [MyNewCAF(Order = 1)]
+    [CustomActionFilter(Order = 2)]
     public class MyStoreController : Controller
     {
-        private MusicStoreEntities storeDB = new MusicStoreEntities();
+        private IStoreService service;
 
-        // GET: /MyStore/
-        //
-        public ActionResult Index()
+        public MyStoreController(IStoreService service)
         {
-            var genres = this.storeDB.Genres;
-
-            return this.View(genres);
+            this.service = service;
         }
 
-
-        // GET: /Store/Browse?genre=Disco 
-        //
-        public ActionResult Browse(string genre)
-        {
-            // Retrieve Genre and its Associated Albums from database
-
-            var genreModel = this.storeDB.Genres.Include("Albums").Single(g => g.Name == genre);
-
-            return this.View(genreModel);
-        }
-
-        // GET: /Store/GenreMenu    (ok, called in _layout.cshtml)
-        //
-        [ChildActionOnly]
-        public ActionResult GenreMenu()
-        {
-            var genres = this.storeDB.Genres.Take(9).ToList();
-
-            return this.PartialView(genres);
-        }
-
-
-        // GET: /Store/Details/5    
-        //
+        // GET: /Store/
         public ActionResult Details(int id)
         {
-            var album = this.storeDB.Albums.Find(id);
-
+            var album = this.service.GetAlbum(id);
             if (album == null)
             {
                 return this.HttpNotFound();
@@ -61,7 +30,28 @@ namespace MyMusicStore.Controllers
             return this.View(album);
         }
 
+        public ActionResult Browse(string genre)
+        {
+            // Retrieve Genre and its Associated Albums from database
+            var genreModel = this.service.GetGenreByName(genre);
 
+            return this.View(genreModel);
+        }
+
+        public ActionResult Index()
+        {
+            var genres = this.service.GetGenres();
+
+            return this.View(genres);
+        }
+
+        // GET: /Store/GenreMenu
+        public ActionResult GenreMenu()
+        {
+            var genres = this.service.GetGenres(9);
+
+            return this.PartialView(genres);
+        }
 
     }
 }

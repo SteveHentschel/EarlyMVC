@@ -26,7 +26,11 @@ namespace MyMusicStore
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new SampleData());
+            Database.SetInitializer(new SampleData());              // Init DB if not there.
+
+            Bootstrapper.Initialise();                              // Add bootstrap for Unity
+
+    //        AppConfig.Configure();                                // In the tutorial, but not in mine (??)
         }
     }
 }
