@@ -4,6 +4,9 @@ ASP.NET WebDev Camps Training Tutorial Series for MVC4 Music Store
 WOrking thru the MS Web Camp Music Store tutorial on ASP.NET.  Nice comprehensive project for MVC4 and EF5.
 
 
+2/10/14: MVC 4 Helpers, Forms, & Validation:  Last tutorial in the WebDev Camp MVC4 series.  Very nice.
+This one covered one helper (Truncate) and some validation (with and w/o Unobtrusive jQuery Val).  slh
+
 2/9/14: MVC 4 Dependency Injection:  Added DI with Factory Pattern (Inversion of Control).  Most complex of the 
 Web Camp tutorials so far.  Will have to study this subject more to fully comprehend.  slh
 

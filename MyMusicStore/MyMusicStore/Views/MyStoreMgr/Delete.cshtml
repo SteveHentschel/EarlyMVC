@@ -4,48 +4,12 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Album Delete Confirmation</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Album</legend>
+<h3> Are you sure you want to delete @Model.Artist.Name's <strong>@Model.Title </strong> ? </h3>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Genre.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Genre.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Artist.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Artist.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Price)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AlbumArtUrl)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AlbumArtUrl)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
