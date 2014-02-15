@@ -1,0 +1,1 @@
+﻿alert("Script2, Made to Hello!")

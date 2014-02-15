@@ -1,0 +1,22 @@
+﻿@model BundleAndViewModel.MyViewModels.MyCustomerVM
+
+@{
+    ViewBag.Title = "MyCustomerDisplay";
+}
+
+<h2>MyCustomerDisplay</h2>
+
+<table class="auto-style1">
+    <tr>
+        <td class="auto-style2">Customer Name :-</td>
+        <td class="auto-style3">@Model.TxtName</td>
+    </tr>
+    <tr>
+        <td class="auto-style2">Amount</td>
+        <td class="auto-style3">@Model.TxtAmount</td>
+    </tr>
+    <tr>
+        <td class="auto-style2">Customer buying level</td>
+        <td class="auto-style3"><div style="background-color: @Model.CustomerLevelColor; width: 228px; height: 27px;"></div></td>
+    </tr>
+</table>

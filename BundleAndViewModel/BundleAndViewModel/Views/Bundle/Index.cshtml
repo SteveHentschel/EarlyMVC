@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@System.Web.Optimization.Scripts.Render("~/Bundles")
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bundle</title>
+</head>
+<body>
+    <div>
+        This is my bundle test view.
+    </div>
+    <div>
+        without bundle, view = 5 ms, J1 = 10 ms, J2 = 3 ms
+    </div>
+    <div>
+        after bundling, view = 7 ms, bundled scripts = 3 ms
+    </div>
+</body>
+
