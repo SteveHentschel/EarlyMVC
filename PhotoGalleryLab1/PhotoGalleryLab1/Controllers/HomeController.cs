@@ -22,7 +22,7 @@ namespace PhotoGalleryLab1.Controllers
         //    return View(result);
         //}
 
-        [AsyncTimeout(500)]
+        [AsyncTimeout(1000)]
         [HandleError(ExceptionType = typeof(TimeoutException), View = "TimesOut")]
         public async Task<ActionResult> Index(CancellationToken cancellationToken)
         {
